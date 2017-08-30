@@ -46,7 +46,7 @@ def custom_concat s
   # ADD YOUR CODE HERE
   # takes a string as an argument and returns the string
   # "Welcome, " concatenated at the beginning of the input string.
-
+  return "Welcome, "+s
 end
 
 def initial_consonant? s
@@ -55,7 +55,12 @@ def initial_consonant? s
   # value. It is true if it starts with a consonant and false otherwise. (Any character
   # other than a vowel is a consonant) This method should work for both uppercase
   # and lowercase strings. Return false if string is empty or null.
-
+  consonant = "BCDFGHJKLMNPQRSTVXZWY"
+  if s.empty?
+    return false
+  else
+    return consonant.include?(s[0].upcase)
+  end
 end
 
 def divisible_by_n? n,s
@@ -64,7 +69,13 @@ def divisible_by_n? n,s
   # value. It is true if the string represents a binary number that is exactly divisible by
   # ‘n’ and false otherwise. It should return false even if the argument is not a valid
   # binary number.
-
+  if s.empty? || n==0
+    return false
+  elsif s !~ /[^01]/ # valid binary number
+    return s.to_i(2) % n == 0 # check divisibility
+  else
+    return false
+  end
 end
 
 # Part 3
