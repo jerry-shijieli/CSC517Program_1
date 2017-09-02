@@ -24,11 +24,17 @@ class TC_Part_1 < Test::Unit::TestCase
   end
 
   def test_freq
-
+    assert_equal(-1, highest_frequency([]))
+    assert_equal(1, highest_frequency([0,0,1,1,1,1,1,1,1,1,1,2,2,2]))
+    assert_equal(10, highest_frequency([100,1,0,2,40,9,7,8,6,5,4,3,2,10,43,100,10,18]))
   end
 
   def test_check_sum
-
+    assert_equal(false, check_sum?([], 100))
+    assert_equal(false, check_sum?([1], 1))
+    assert_equal(false, check_sum?([1], 10))
+    assert_equal(true, check_sum?([100,1,0,2,40,9,7,8,6,5,4,3,2,10,43,100,10,18], 43))
+    assert_equal(false, check_sum?([100,1,0,2,40,9,7,8,6,5,4,3,2,10,43,100,10,18], 250))
   end
 
   # # Fake test

@@ -32,7 +32,7 @@ def check_sum? a, n
   # that takes an array of integers and an additional integer, n, as arguments
   # and returns true if any two elements in the array of integers sum
   # to n. checkSum?([], n) should return false for any value of n, by definition.
-  if a.empty?
+  if a.empty? || a.length==1
     return false
   else
     pairs = a.combination(2).to_a
