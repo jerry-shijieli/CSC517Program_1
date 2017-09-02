@@ -1,7 +1,7 @@
-require 'test/unit'
+require 'minitest/autorun'
 require_relative '../code/ruby_intro'
 
-class TC_Part_1 < Test::Unit::TestCase
+class TC_Part_1 < MiniTest::Test
 
   # Called before every test method runs. Can be used
   # to set up fixture information.
@@ -26,7 +26,7 @@ class TC_Part_1 < Test::Unit::TestCase
   def test_freq
     assert_equal(-1, highest_frequency([]))
     assert_equal(1, highest_frequency([0,0,1,1,1,1,1,1,1,1,1,2,2,2]))
-    assert_equal(10, highest_frequency([100,1,0,2,40,9,7,8,6,5,4,3,2,10,43,100,10,18]))
+    assert_equal(2, highest_frequency([100,1,0,2,40,9,7,8,6,5,4,3,2,10,43,100,10,18]))
   end
 
   def test_check_sum

@@ -1,7 +1,7 @@
-require 'test/unit'
+require 'minitest/autorun'
 require_relative '../code/ruby_intro'
 
-class TC_Part_2 < Test::Unit::TestCase
+class TC_Part_2 < MiniTest::Test
 
   # Called before every test method runs. Can be used
   # to set up fixture information.
@@ -41,7 +41,9 @@ class TC_Part_2 < Test::Unit::TestCase
     assert_equal(false, divisible_by_n?(2, "1111211103002"))
     assert_equal(true, divisible_by_n?(2, "11101100111110"))
     assert_equal(true, divisible_by_n?(5, "101011001"))
-    assert_equal(true, divisible_by_n?(13 "1000110000101"))
+    assert_equal(true, divisible_by_n?(13, "1000110000101"))
+    assert_equal(false, divisible_by_n?(13, "0B1000110000101"))
+    assert_equal(false, divisible_by_n?(13, "0b1000110000101"))
   end
 
   # # Fake test

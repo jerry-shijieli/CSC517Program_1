@@ -21,7 +21,8 @@ def highest_frequency a
   else
     counts = Hash.new(0)
     a.each {|num| counts[num] += 1}
-    freq = counts.sort_by {|key, val| key}.to_h
+    freq = counts.sort_by {|key, val| key}
+    freq = Hash[*freq.flatten]
     max_count = freq.values.max
     return freq.key(max_count)
   end
@@ -73,6 +74,8 @@ def divisible_by_n? n,s
     return false
   elsif s !~ /[^01]/ # valid binary number
     return s.to_i(2) % n == 0 # check divisibility
+  # elsif s.length>2 && (s[0...2]).upcase=="0b".upcase && s[2..-1]!~/[^01]/
+  #   return s.to_i(2) % n == 0 # check divisibility
   else
     return false
   end
@@ -84,17 +87,14 @@ class Car
   # ADD YOUR CODE HERE
   attr_accessor :model_number, :price
   def initialize(model_number, price)
-    if model_number.empty?
-      raise ArgumentError("model_number is an empty string!")
-    elsif price<=0
-      raise ArgumentError("Price is less than or equal to zero!")
-    end
+    raise ArgumentError.new("model_number is an empty string!") if model_number.empty?
+    raise ArgumentError.new("Price is less than or equal to zero!") unless price>0
     @model_number = model_number
     @price = price
   end
   def formatted_price
-    dollars = price.floor
-    cents = ((price - dollars)*100).round
+    dollars = @price.floor
+    cents = ((@price - dollars)*100).round
     dstr = dollars==0? "" : (dollars==1? "1 dollar" : "#{dollars} dollars") # output string for dollars
     cstr = cents==0? " only" : (cents==1? "1 cent only" : "#{cents} cents only") # output string for cents
     if dollars==0
