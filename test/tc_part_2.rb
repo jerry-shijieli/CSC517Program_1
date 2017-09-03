@@ -35,15 +35,15 @@ class TC_Part_2 < MiniTest::Test
   end
 
   def test_divisible
-    assert_equal(false, divisible_by_n?(0, "1"))
-    assert_equal(false, divisible_by_n?(1, ""))
-    assert_equal(false, divisible_by_n?(2, "11"))
-    assert_equal(false, divisible_by_n?(2, "1111211103002"))
-    assert_equal(true, divisible_by_n?(2, "11101100111110"))
-    assert_equal(true, divisible_by_n?(5, "101011001"))
-    assert_equal(true, divisible_by_n?(13, "1000110000101"))
-    assert_equal(false, divisible_by_n?(13, "0B1000110000101"))
-    assert_equal(false, divisible_by_n?(13, "0b1000110000101"))
+    assert_equal(false, divisible_by_n?( "1", 0))
+    assert_equal(false, divisible_by_n?("", 1))
+    assert_equal(false, divisible_by_n?( "11", 2))
+    assert_equal(false, divisible_by_n?( "1111211103002", 2))
+    assert_equal(true, divisible_by_n?( "11101100111110", 2))
+    assert_equal(true, divisible_by_n?( "101011001", 5))
+    assert_equal(true, divisible_by_n?( "1000110000101", 13))
+    assert_equal(false, divisible_by_n?( "0B1000110000101", 13))
+    assert_equal(false, divisible_by_n?( "0b1000110000101", 13))
   end
 
   # # Fake test

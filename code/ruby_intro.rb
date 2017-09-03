@@ -64,7 +64,7 @@ def initial_consonant? s
   end
 end
 
-def divisible_by_n? n,s
+def divisible_by_n? s,n
   # ADD YOUR CODE HERE
   # takes a string as an argument and returns a boolean
   # value. It is true if the string represents a binary number that is exactly divisible by
